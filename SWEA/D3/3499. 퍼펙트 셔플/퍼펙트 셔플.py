@@ -6,11 +6,10 @@ for tc in range(1, T+1):
     c1 = card[:mid]
     c2 = card[mid:]
 
-    new_card = []
+    print(f'#{tc} ', end='')
     for i in range(mid):
-        new_card.append(c1[i])
+        print(c1[i], end=' ')
         if N % 2 == 1 and i == mid - 1:
             continue
-        new_card.append(c2[i])
-
-    print(f'#{tc}', *new_card)
+        print(c2[i], end=' ')
+    print()
