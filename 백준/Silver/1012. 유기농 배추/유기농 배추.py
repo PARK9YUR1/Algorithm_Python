@@ -5,10 +5,9 @@ def dfs(i, j):
     if 0 <= i < N and 0 <= j < M:
         if box[i][j] == 1:
             box[i][j] = 0
-            dfs(i-1, j)
-            dfs(i, j-1)
-            dfs(i+1, j)
-            dfs(i, j+1)
+            for k in [(i+1, j), (i-1, j), (i, j+1), (i, j-1)]:
+                x, y = k
+                dfs(x, y)
             return True
         return False
     else:
