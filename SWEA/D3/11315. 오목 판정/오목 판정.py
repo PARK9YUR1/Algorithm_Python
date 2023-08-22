@@ -2,17 +2,13 @@ T = int(input())
 for tc in range(1, T+1):
     N = int(input())
     box = [list(map(str, input())) for _ in range(N)]
-    box2 = []
-    for b in box:
-        box2.append(b[::-1])
+    box2 = [b[::-1] for b in box]
 
     lst1 = ['']*(2*N-1)
     lst2 = ['']*(2*N-1)
-    txt1 = ''
-    txt2 = ''
+    txt1 = txt2 = ''
 
     result = 'NO'
-
     for i in range(N):
         for j in range(N):
             # 1
@@ -34,16 +30,8 @@ for tc in range(1, T+1):
     if 'ooooo' in txt1 or 'ooooo' in txt2:
         result = 'YES'
 
-    for l in lst1:
-        if result == 'YES':
-            break
-        if 'ooooo' in l:
-            result = 'YES'
-
-    for l in lst2:
-        if result == 'YES':
-            break
-        if 'ooooo' in l:
+    for l in range(2*N-1):
+        if 'ooooo' in lst1[l] or 'ooooo' in lst2[l]:
             result = 'YES'
 
     print(f'#{tc} {result}')
