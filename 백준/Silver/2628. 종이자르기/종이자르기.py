@@ -1,6 +1,5 @@
 A, B = map(int, input().split())  # 가로, 세로 길이
 cut = int(input())  # 잘라야하는 점선 개수
-box = [[0]*A for _ in range(B)]
 G = [0, B]  # 가로방향
 S = [0, A]  # 세로방향
 for _ in range(cut):
