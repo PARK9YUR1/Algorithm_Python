@@ -1,5 +1,8 @@
-txt = input()
-bomb = list(input())
+import sys
+input = sys.stdin.readline
+
+txt = input().rstrip()
+bomb = list(input().rstrip())
 N = len(bomb)
 stack = []
 for i in txt:
