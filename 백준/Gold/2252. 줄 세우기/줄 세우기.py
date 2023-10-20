@@ -17,16 +17,13 @@ q = deque()
 for i in range(1, N+1):
     if arr[i] == 0:
         q.append(i)
-        visited[i] = True
 
 while q:
     x = q.popleft()
     result.append(x)
     for i in nums[x]:
         arr[i] -= 1
-    for i in range(1, N+1):
-        if arr[i] == 0 and visited[i] == False:
+        if arr[i] == 0:
             q.append(i)
-            visited[i] = True
 
 print(*result)
