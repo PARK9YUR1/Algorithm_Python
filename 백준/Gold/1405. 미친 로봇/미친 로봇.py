@@ -7,16 +7,17 @@ ans = 0
 dx = [1, -1, 0, 0]
 dy = [0, 0, 1, -1]
 
-def dfs(x, y, depth, pstack):
+# x좌표, y좌표, 이동횟수, 확률
+def dfs(x, y, move, p):
     global ans
     visited[x][y] = True
     for k in range(4):
         nx, ny = x + dx[k], y + dy[k]
         if visited[nx][ny] == False:
-            if depth == N:  # N번 이동한 경우
-                ans += pstack * dir[k]  # 확률을 더함
+            if move == N:  # N번 이동한 경우
+                ans += p * dir[k]  # 확률을 더함
             else:
-                dfs(nx, ny, depth+1, pstack * dir[k])
+                dfs(nx, ny, move+1, p * dir[k])
     visited[x][y] = False
 
 dfs(14, 14, 1, 1)  # 시작점 : 중앙
