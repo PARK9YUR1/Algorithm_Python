@@ -18,6 +18,8 @@ def bfs():
     q1 = deque([coin[0]])
     q2 = deque([coin[1]])
     q3 = deque([1])
+    # q = [[coin[0]], [coin[1]], [1]]
+    # q = [첫번째동전, 두번째동전, cnt]
     q = [q1, q2, q3]
 
     while q[0]:
@@ -34,7 +36,6 @@ def bfs():
             # 둘 중 하나만 보드 밖에 있을 때
             elif ((0 <= nx1 < N and 0 <= ny1 < M) and ((0 > nx2 or nx2 >= N) or (0 > ny2 or ny2 >= M))) \
             or ((0 <= nx2 < N and 0 <= ny2 < M) and ((0 > nx1 or nx1 >= N) or (0 > ny1 or ny1 >= M))):
-                checked = True
                 return cnt
             # 둘 다 보드 안에 있을 때
             elif (0 <= nx1 < N and 0 <= ny1 < M) and (0 <= nx2 < N and 0 <= ny2 < M):
@@ -43,13 +44,13 @@ def bfs():
                     continue
                 # coin1만 벽일 때
                 elif board[nx1][ny1] == '#':
-                    if (nx1, ny1) != (nx2, ny2) and cnt <= 9:
+                    if (x1, y1) != (nx2, ny2) and cnt <= 9:
                         q[0].append((x1, y1))
                         q[1].append((nx2, ny2))
                         q[2].append(cnt+1)
                 # coin2만 벽일 때
                 elif board[nx2][ny2] == '#':
-                    if (nx1, ny1) != (nx2, ny2) and cnt <= 9:
+                    if (nx1, ny1) != (x2, y2) and cnt <= 9:
                         q[0].append((nx1, ny1))
                         q[1].append((x2, y2))
                         q[2].append(cnt+1)
