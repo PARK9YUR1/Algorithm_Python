@@ -2,14 +2,9 @@
 N = int(input())
 result = 0
 
-while N:
+while N >= 0:  # 0 이상이어야 N=0 일때 N%5==0 조건 참
     if N % 5 == 0:
         result += (N // 5)
-        print(result)
-        break
-
-    if N < 5 and N % 3 == 0:
-        result += 1
         print(result)
         break
 
@@ -19,5 +14,3 @@ while N:
 
     N -= 3
     result += 1
-
-
