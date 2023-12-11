@@ -10,9 +10,9 @@ def solution(numbers, target):
                 answer += 1
             return
         
-        arr[i] = 1  # 1:빼기, 0:더하기
+        # arr[i] = 1  # 1:빼기, 0:더하기
         calc(i+1, num - 2*numbers[i])
-        arr[i] = 0
+        # arr[i] = 0
         calc(i+1, num)
         
     calc(0, sum(numbers))
