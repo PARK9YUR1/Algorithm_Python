@@ -9,36 +9,28 @@ def solution(rows, columns, queries):
         
         x, y = x1-1, y1-1
         while y < y2-1:
-            if arr[x][y]:
-                pass
-            else:
+            if not arr[x][y]:
                 arr[x][y] = columns*x + (y+1)
             mn = min(mn, arr[x][y])
             tmp.append((x, y))
             y += 1
                 
         while x < x2-1:
-            if arr[x][y]:
-                pass
-            else:
+            if not arr[x][y]:
                 arr[x][y] = columns*x + (y+1)
             mn = min(mn, arr[x][y])
             tmp.append((x, y))
             x += 1
 
         while y > y1-1:
-            if arr[x][y]:
-                pass
-            else:
+            if not arr[x][y]:
                 arr[x][y] = columns*x + (y+1)
             mn = min(mn, arr[x][y])
             tmp.append((x, y))
             y -= 1
 
         while x >= x1:
-            if arr[x][y]:
-                pass
-            else:
+            if not arr[x][y]:
                 arr[x][y] = columns*x + (y+1)
             mn = min(mn, arr[x][y])
             tmp.append((x, y))
