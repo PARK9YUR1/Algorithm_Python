@@ -10,8 +10,8 @@ def solution(begin, target, words):
             for j in range(N):
                 if i == j:
                     continue
-                arr = [words[i][k] == words[j][k] for k in range(W)]
-                if sum(arr) == W-1:
+                arr = [words[i][k] != words[j][k] for k in range(W)]
+                if sum(arr) == 1:
                     graph[i].append(j)
         
         def bfs(v):
